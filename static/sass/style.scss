@@ -1,0 +1,44 @@
+@import "../bulma/sass/utilities/_all.sass";
+@import "../bulma/sass/base/_all.sass";
+@import "../bulma/sass/elements/_all.sass";
+@import "../bulma/sass/form/_all.sass";
+
+pre {
+  background: none;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: 
+    "header header header header"
+    "code code code  options"
+    "results results output styles";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1em 1em;
+  gap: 1em 1em;
+
+  .top {
+    grid-area: header;
+  }
+
+  .code {
+    grid-area: code;
+  }
+
+  .options {
+    grid-area: options;
+  }
+
+  .results {
+    grid-area: results;
+  }
+
+  .output {
+    grid-area: output;
+  }
+
+  .styles {
+    grid-area: styles;
+  }
+}
+
