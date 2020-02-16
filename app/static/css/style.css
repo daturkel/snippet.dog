@@ -4685,19 +4685,11 @@ pre code {
   flex: 1;
 }
 
-#line-config {
-  display: flex;
-}
-#line-config .field {
-  margin-left: 0.75em;
-  flex: 1;
-}
-
 .container {
   margin-top: 3em;
   display: grid;
   grid-template-areas: "header header header header" "code code code  options" "results results output styles";
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 1em 1em;
   gap: 1em 1em;
 }

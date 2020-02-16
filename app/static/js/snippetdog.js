@@ -7,17 +7,13 @@ var delay = (function() {
     };
 })();
 
-var baseline_style = ".highlight pre { font-family: monospace; font-size: 14px; overflow-x: auto; padding: 1.25rem 1.5rem; white-space: pre; word-wrap: normal; line-height: 1.5;} \n"
-
 var render = (function() {
     var body = {
         code: $('.textarea').val(),
         language: $('#language').val(),
         style: $('#style').val(),
-        line_nos: $('#line_nos').val(),
-        line_no_start: $('#line_no_start').val()
+        line_no_type: $('#line_no_type').val(),
     };
-    console.log(body)
 
     var poster = $.ajax({
         type: "POST",
@@ -29,7 +25,7 @@ var render = (function() {
         success: function(data) {
           $('.result_space').empty().append(data.results);
           $('#output').val(data.results);
-          $('#styles').val(baseline_style + data.styles);
+          $('#styles').val(data.styles);
           $('#code-style').html(data.styles);
         }
     });
