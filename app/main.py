@@ -14,6 +14,7 @@ from rules import get_line_no_rule, get_baseline_rule
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/.well-known", StaticFiles(directory="static/.well-known"), name="static")
 
 
 @app.get("/")
