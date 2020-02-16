@@ -4665,9 +4665,36 @@ a.tag:hover {
 
 pre {
   background: none;
+  color: unset;
+}
+
+pre code {
+  color: unset;
+}
+
+.code {
+  display: flex;
+  flex-direction: column;
+}
+.code .control {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.code .control textarea#code {
+  flex: 1;
+}
+
+#line-config {
+  display: flex;
+}
+#line-config .field {
+  margin-left: 0.75em;
+  flex: 1;
 }
 
 .container {
+  margin-top: 3em;
   display: grid;
   grid-template-areas: "header header header header" "code code code  options" "results results output styles";
   grid-template-columns: 1fr 1fr 1fr 1fr;

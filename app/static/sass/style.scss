@@ -5,9 +5,36 @@
 
 pre {
   background: none;
+  color: unset;
+}
+
+pre code {
+  color: unset;
+}
+
+.code {
+  display: flex;
+  flex-direction: column;
+  .control {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    textarea#code {
+      flex: 1;
+    }
+  }
+}
+
+#line-config {
+  display: flex;
+  .field {
+    margin-left: 0.75em;
+    flex: 1;
+  }
 }
 
 .container {
+  margin-top: 3em;
   display: grid;
   grid-template-areas: 
     "header header header header"
