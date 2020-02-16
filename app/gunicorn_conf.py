@@ -30,6 +30,7 @@ keepalive = 120
 errorlog = "-"
 keyfile = os.getenv("KEYFILE", None)
 certfile = os.getenv("CERTFILE", None)
+ca_certs = os.getenv("CHAINFILE", None)
 
 # For debugging and testing
 log_data = {
