@@ -7,4 +7,5 @@ RUN pip install gunicorn==20.0.4
 RUN pip install uvicorn==0.11.2
 
 COPY ./app /app
-COPy ./start.sh /start.sh
+COPY ./start.sh /start.sh
+RUN chmod +x /start.sh
