@@ -26,6 +26,7 @@ Snippet Dog stands on the shoulders of giants by leveraging some great pre-exist
   - FastAPI in turn uses [Starlette](https://www.starlette.io/) and [pydantic](https://pydantic-docs.helpmanual.io/)
 - [Pygments](https://pygments.org/) for the syntax highlighting
 - [jQuery](https://jquery.com/) for Ajax and client-side interactivity
+- [Bulma](https://bulma.io/) for the website’s base styles
 
 In production, Snippet Dog relies on:
 
