@@ -25,6 +25,9 @@ pre code {
   }
 }
 
+$minwidth: 350px;
+$mobile: 560px;
+
 .container {
   margin-top: 3em;
   display: grid;
@@ -35,6 +38,7 @@ pre code {
   grid-template-columns: repeat(4, minmax(0,1fr));
   grid-gap: 1em 1em;
   gap: 1em 1em;
+  max-width: $widescreen - $container-offset;
 
   .top {
     grid-area: header;
@@ -58,6 +62,53 @@ pre code {
 
   .styles {
     grid-area: styles;
+  }
+
+  .select {
+    width: 100%;
+    select {
+      width: 100%;
+    }
+  }
+  
+  @include until($mobile) {
+    grid-template-areas: 
+      "header"
+      "code"
+      "options"
+      "results"
+      "output"
+      "styles";
+    grid-template-columns: minmax(0,1fr);
+    margin-bottom: $gap;
+  }
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+  grid-template-areas: 
+    "header header header header"
+    "code code code  options"
+    "results results results results"
+    "output output output output"
+    "styles styles styles styles";
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    margin-bottom: $gap;
+  }
+
+  @include until($widescreen) {
+    max-width: $desktop - $container-offset;
+  }
+
+  @include from($widescreen) {
+    max-width: calc(100vw - 4 * #{$container-offset});
+  }
+  
+
+  @media screen and (min-width: $minwidth) and (max-width: $fullhd) {
+    width: calc(100vw - #{$container-offset});
+  }
+
+  @include from($fullhd) {
+    max-width: $widescreen - $container-offset;
   }
 }
 

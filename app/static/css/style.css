@@ -4692,6 +4692,7 @@ pre code {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 1em 1em;
   gap: 1em 1em;
+  max-width: 1152px;
 }
 .container .top {
   grid-area: header;
@@ -4710,6 +4711,46 @@ pre code {
 }
 .container .styles {
   grid-area: styles;
+}
+.container .select {
+  width: 100%;
+}
+.container .select select {
+  width: 100%;
+}
+@media screen and (max-width: 559px) {
+  .container {
+    grid-template-areas: "header" "code" "options" "results" "output" "styles";
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 560px) and (max-width: 769px) {
+  .container {
+    grid-template-areas: "header header header header" "code code code  options" "results results results results" "output output output output" "styles styles styles styles";
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 32px;
+  }
+}
+@media screen and (max-width: 1215px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1216px) {
+  .container {
+    max-width: calc(100vw - 4 * 64px);
+  }
+}
+@media screen and (min-width: 350px) and (max-width: 1408px) {
+  .container {
+    width: calc(100vw - 64px);
+  }
+}
+@media screen and (min-width: 1408px) {
+  .container {
+    max-width: 1152px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
