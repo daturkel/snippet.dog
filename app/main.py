@@ -15,6 +15,7 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+
 @app.get("/")
 def index():
     return FileResponse("./static/index.html")
@@ -28,9 +29,11 @@ async def render(request: RenderRequest):
         style=request.style, wrapcode=True, linespans=linespans
     )
     results = highlight(request.code, lexer, formatter)
-    styles = get_baseline_rule(True, False) + formatter.get_style_defs([".highlight"])
+    styles = get_baseline_rule() + formatter.get_style_defs([".highlight"])
     if request.line_no_type:
         line_no_color = formatter.class2style["c"][0].split(" ")[1]
-        line_no_rule = get_line_no_rule(line_no_color, request.line_no_type)
+        line_no_rule = get_line_no_rule(
+            line_no_color, request.line_no_type, len(request.code.splitlines())
+        )
         styles = line_no_rule + styles
     return {"results": results, "styles": styles}
