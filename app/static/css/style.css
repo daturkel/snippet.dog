@@ -4688,7 +4688,7 @@ pre code {
 .container {
   margin-top: 3em;
   display: grid;
-  grid-template-areas: "header header header header" "code code code  options" "results results output styles";
+  grid-template-areas: "header header header header" "code code code  options" "output output html css";
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 1em 1em;
   gap: 1em 1em;
@@ -4703,14 +4703,14 @@ pre code {
 .container .options {
   grid-area: options;
 }
-.container .results {
-  grid-area: results;
-}
 .container .output {
   grid-area: output;
 }
-.container .styles {
-  grid-area: styles;
+.container .html {
+  grid-area: html;
+}
+.container .css {
+  grid-area: css;
 }
 .container .select {
   width: 100%;
@@ -4720,14 +4720,14 @@ pre code {
 }
 @media screen and (max-width: 559px) {
   .container {
-    grid-template-areas: "header" "code" "options" "results" "output" "styles";
+    grid-template-areas: "header" "code" "options" "output" "html" "css";
     grid-template-columns: minmax(0, 1fr);
     margin-bottom: 32px;
   }
 }
 @media screen and (min-width: 560px) and (max-width: 769px) {
   .container {
-    grid-template-areas: "header header header header" "code code code  options" "results results results results" "output output output output" "styles styles styles styles";
+    grid-template-areas: "header header header header" "code code code  options" "output output output output" "html html html html" "css css css css";
     grid-template-columns: repeat(4, minmax(0, 1fr));
     margin-bottom: 32px;
   }

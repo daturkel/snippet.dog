@@ -34,7 +34,7 @@ $mobile: 560px;
   grid-template-areas: 
     "header header header header"
     "code code code  options"
-    "results results output styles";
+    "output output html css";
   grid-template-columns: repeat(4, minmax(0,1fr));
   grid-gap: 1em 1em;
   gap: 1em 1em;
@@ -52,16 +52,16 @@ $mobile: 560px;
     grid-area: options;
   }
 
-  .results {
-    grid-area: results;
-  }
-
   .output {
     grid-area: output;
   }
 
-  .styles {
-    grid-area: styles;
+  .html {
+    grid-area: html;
+  }
+
+  .css {
+    grid-area: css;
   }
 
   .select {
@@ -76,9 +76,9 @@ $mobile: 560px;
       "header"
       "code"
       "options"
-      "results"
       "output"
-      "styles";
+      "html"
+      "css";
     grid-template-columns: minmax(0,1fr);
     margin-bottom: $gap;
   }
@@ -87,9 +87,9 @@ $mobile: 560px;
   grid-template-areas: 
     "header header header header"
     "code code code  options"
-    "results results results results"
     "output output output output"
-    "styles styles styles styles";
+    "html html html html"
+    "css css css css";
     grid-template-columns: repeat(4, minmax(0,1fr));
     margin-bottom: $gap;
   }

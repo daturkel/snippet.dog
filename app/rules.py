@@ -7,7 +7,7 @@ def get_baseline_rule():
 
 def get_line_no_rule(comment_rule: str, line_no_type: str, num_lines: int) -> str:
     num_digits = len(str(num_lines))
-    line_no_color = comment_rule_to_color(comment_rule)
+    line_no_color = _comment_rule_to_color(comment_rule)
     rule = (
         ".highlight { counter-reset: line; }\n"
         "/* from: https://codepen.io/elomatreb/pen/hbgxp */\n"
@@ -27,11 +27,11 @@ def get_line_no_rule(comment_rule: str, line_no_type: str, num_lines: int) -> st
     return rule
 
 
-def comment_rule_to_color(comment_rule: str) -> str:
+def _comment_rule_to_color(comment_rule: str) -> str:
     words = comment_rule.split(" ")
     for word in words:
         if word[0] == "#":
-            if word[-1] == "; ":
+            if word[-1] == ";":
                 return word
             else:
                 return word + "; "

@@ -14,21 +14,28 @@ var render = (function() {
         style: $('#style').val(),
         line_no_type: $('#line_no_type').val(),
     };
+    console.log(body.code);
 
-    var poster = $.ajax({
-        type: "POST",
-        url: "/render",
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify(body),
-        processData: false,
-        success: function(data) {
-          $('.result_space').empty().append(data.results);
-          $('#output').val(data.results);
-          $('#styles').val(data.styles);
-          $('#code-style').html(data.styles);
-        }
-    });
+    if (body.code != "") {
+        $.ajax({
+            type: "POST",
+            url: "/render",
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(body),
+            processData: false,
+            success: function(data) {
+              $('.output_space').empty().append(data.results);
+              $('#html').val(data.results);
+              $('#css').val(data.styles);
+              $('#code-style').html(data.styles);
+            }
+        });
+    } else {
+      $('.output_space').empty().append("<div class=\"highlight\"><pre><span></span><code></code></pre></div>");
+      $('#html').val("");
+      $('#css').val("");
+    }
 });
 
 $('.textarea').keyup(function() {
