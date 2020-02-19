@@ -31,9 +31,9 @@ async def render(request: RenderRequest):
     results = highlight(request.code, lexer, formatter)
     styles = get_baseline_rule() + formatter.get_style_defs([".highlight"])
     if request.line_no_type:
-        line_no_color = formatter.class2style["c"][0].split(" ")[1]
+        comment_rule = formatter.class2style["c"][0]
         line_no_rule = get_line_no_rule(
-            line_no_color, request.line_no_type, len(request.code.splitlines())
+            comment_rule, request.line_no_type, len(request.code.splitlines())
         )
         styles = line_no_rule + styles
     return {"results": results, "styles": styles}

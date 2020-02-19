@@ -5,8 +5,9 @@ def get_baseline_rule():
     return rule
 
 
-def get_line_no_rule(line_no_color: str, line_no_type: str, num_lines: int) -> str:
+def get_line_no_rule(comment_rule: str, line_no_type: str, num_lines: int) -> str:
     num_digits = len(str(num_lines))
+    line_no_color = comment_rule_to_color(comment_rule)
     rule = (
         ".highlight { counter-reset: line; }\n"
         "/* from: https://codepen.io/elomatreb/pen/hbgxp */\n"
@@ -24,3 +25,14 @@ def get_line_no_rule(line_no_color: str, line_no_type: str, num_lines: int) -> s
         rule += f"border-right: 1px solid {line_no_color}" "margin-right: 0.5em;"
     rule += "}\n"
     return rule
+
+
+def comment_rule_to_color(comment_rule: str) -> str:
+    words = comment_rule.split(" ")
+    for word in words:
+        if word[0] == "#":
+            if word[-1] == "; ":
+                return word
+            else:
+                return word + "; "
+    return "currentColor; "
