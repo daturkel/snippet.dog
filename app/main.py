@@ -1,3 +1,4 @@
+import os
 from typing import Optional
 
 from pygments import highlight
@@ -13,6 +14,13 @@ from utils import strip_extra_newlines
 
 
 app = FastAPI()
+
+if os.environ.get("SDENV") == "local":
+    app.mount("/static", StaticFiles(directory="static"), name="static")
+
+    @app.get("/")
+    def index():
+        return FileResponse("./static/index.html")
 
 
 @app.post("/render")

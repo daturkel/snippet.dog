@@ -14,7 +14,6 @@ var render = (function() {
         style: $('#style').val(),
         line_no_type: $('#line_no_type').val(),
     };
-    console.log(body.code);
 
     if (body.code != "") {
         $.ajax({
