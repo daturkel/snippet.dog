@@ -16,11 +16,24 @@ from utils import strip_extra_newlines
 app = FastAPI()
 
 if os.environ.get("SDENV") == "local":
-    app.mount("/static", StaticFiles(directory="static"), name="static")
+    # this is a hacky workaround but it works:
+    # mounting the whole static directory to "/" interferes with the "/render"
+    # endpoint. mounting it to "/static" means that my links which assume
+    # "static" is root don't work. so i just manually reroute the few important
+    # requests to static files here.
 
     @app.get("/")
     def index():
         return FileResponse("./static/index.html")
+
+    @app.get("/css/style.css")
+    def style():
+        return FileResponse("./static/css/style.css")
+
+    @app.get("/js/snippetdog.js")
+    def js():
+        return FileResponse("./static/js/snippetdog.js")
+
 
 
 @app.post("/render")
