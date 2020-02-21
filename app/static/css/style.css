@@ -4694,7 +4694,7 @@ pre code {
   gap: 1em 1em;
   max-width: 1152px;
 }
-.container .top {
+.container .header {
   grid-area: header;
 }
 .container .code {
